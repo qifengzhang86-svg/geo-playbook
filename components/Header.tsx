@@ -13,6 +13,8 @@ const navItems = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
+  const email = "zhangqifeng86@gmail.com";
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
@@ -55,14 +57,14 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* 桌面端订阅按钮 */}
+          {/* 桌面端联系按钮 */}
           <div className="hidden md:block">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors shadow-sm"
+            <button
+              onClick={() => setShowEmail(!showEmail)}
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transition-all shadow-sm"
             >
-              订阅更新
-            </Link>
+              {showEmail ? email : "联系我们"}
+            </button>
           </div>
 
           {/* 移动端菜单按钮 */}
@@ -103,7 +105,7 @@ export default function Header() {
             <X className="w-6 h-6" />
           </button>
         </div>
-        <nav className="flex flex-col p-4 gap-1" aria-label="主导航">
+        <nav className="flex flex-col p-4 gap-1" aria-label="移动导航">
           {navItems.map(({ href, label, external }) => (
             external ? (
               <a
@@ -127,13 +129,12 @@ export default function Header() {
               </Link>
             )
           ))}
-          <Link
-            href="/contact"
-            className="mx-4 mt-4 py-3 rounded-full text-center text-sm font-medium text-white bg-gray-900 hover:bg-gray-800"
-            onClick={() => setMobileOpen(false)}
+          <button
+            className="mx-4 mt-4 py-3 rounded-full text-center text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transition-all"
+            onClick={() => setShowEmail(!showEmail)}
           >
-            订阅更新
-          </Link>
+            {showEmail ? email : "联系我们"}
+          </button>
         </nav>
       </div>
     </header>
