@@ -13,6 +13,14 @@ export default function AdSlot({
   className = "",
   label = "广告",
 }: AdSlotProps) {
-  // 正在申请 Google AdSense，临时隐藏所有广告位
-  return null;
+  return (
+    <div
+      id={id}
+      role="complementary"
+      aria-label={label}
+      className={`min-h-[90px] flex items-center justify-center bg-gray-100 rounded-lg border border-gray-200 text-gray-500 text-sm ${className}`}
+    >
+      {label}
+    </div>
+  );
 }
