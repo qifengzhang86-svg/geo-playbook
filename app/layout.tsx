@@ -32,20 +32,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788483889913397"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-      </head>
       <body className="antialiased min-h-screen flex flex-col bg-gray-50 text-gray-900">
         <Header />
         <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {children}
         </main>
         <Footer />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788483889913397"
+          crossOrigin="anonymous"
+        ></script>
       </body>
     </html>
   );
